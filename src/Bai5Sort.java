@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Bai5Sort {
-    public static ArrayList<Product> findProductByCategory(ArrayList<Product> listProduct, int newCategoryId){
+    public static ArrayList<Product> findProductByCategory(ArrayList<Product> listProduct, int categoryId){
         ArrayList<Product> newProduct = new ArrayList<Product>();
-        for (Product pr: listProduct){
-            if (newCategoryId == pr.categoryId){
-                newProduct.add(pr);
+        for (Product product: listProduct){
+            if (categoryId == product.getCategoryId()){
+                newProduct.add(product);
             }
         }
         return newProduct;

@@ -1,18 +1,28 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
-public class Bai4Sort {
-    public static Product findProduct(ArrayList<Product> listProduct, String nameProduct){
-        for (Product pr: listProduct){
-            if (nameProduct.equals(pr.getName())){
-                return pr;
+public class Bai15Min {
+    public static Product minByPrice(ArrayList<Product> listProduct){
+        Product product = listProduct.get(0);
+        for (int i=1; i< listProduct.size(); i++){
+            if (listProduct.get(i).getPrice() < product.getPrice()){
+                product = listProduct.get(i);
             }
         }
-        return null;
+        return product;
     }
-    public static void main(String[] args) {
 
-        ArrayList<Product> listProduct = new ArrayList<Product>();
+    public static void main(String[] args) {
+        ArrayList<Category> listCategory = new ArrayList<Category>();
+        Category category1 = new Category(1, "Computer");
+        Category category2 = new Category(2, "Memory");
+        Category category3 = new Category(3, "Card");
+        Category category4 = new Category(4, "Accessory");
+        listCategory.add(category1);
+        listCategory.add(category2);
+        listCategory.add(category3);
+        listCategory.add(category4);
+
+        ArrayList<Product> listProduct = new ArrayList<>();
         Product product1 = new Product("CPU", 750, 10, 1);
         Product product2 = new Product("RAM", 50, 2, 2);
         Product product3 = new Product("HDD", 70, 1, 2);
@@ -32,9 +42,6 @@ public class Bai4Sort {
         listProduct.add(product8);
         listProduct.add(product9);
 
-        Scanner input = new Scanner(System.in);
-        String nameProduct = input.next();
-
-        System.out.println(findProduct(listProduct, nameProduct));
+        System.out.println(minByPrice(listProduct));
     }
 }

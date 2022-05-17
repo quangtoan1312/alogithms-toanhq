@@ -1,18 +1,22 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Bai4Sort {
-    public static Product findProduct(ArrayList<Product> listProduct, String nameProduct){
-        for (Product pr: listProduct){
-            if (nameProduct.equals(pr.getName())){
-                return pr;
+public class Bai12Sort {
+    public static ArrayList<Product> sortByName(ArrayList<Product> listProduct){
+        for (int i = 1; i < listProduct.size() ; i++){
+            Product product = listProduct.get(i);
+            int j = i-1;
+            while (j >= 0 && product.getName().length() > listProduct.get(j).getName().length()){
+                listProduct.set(j+1, listProduct.get(j));
+                j--;
             }
+            listProduct.set(j+1, product);
         }
-        return null;
+        return listProduct;
     }
-    public static void main(String[] args) {
 
-        ArrayList<Product> listProduct = new ArrayList<Product>();
+    public static void main(String[] args) {
+        ArrayList<Product> listProduct = new ArrayList<>();
         Product product1 = new Product("CPU", 750, 10, 1);
         Product product2 = new Product("RAM", 50, 2, 2);
         Product product3 = new Product("HDD", 70, 1, 2);
@@ -32,9 +36,9 @@ public class Bai4Sort {
         listProduct.add(product8);
         listProduct.add(product9);
 
-        Scanner input = new Scanner(System.in);
-        String nameProduct = input.next();
-
-        System.out.println(findProduct(listProduct, nameProduct));
+        sortByName(listProduct);
+        for(Product product: listProduct){
+            System.out.println(product.toString());
+        }
     }
 }

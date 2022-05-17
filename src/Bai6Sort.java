@@ -4,9 +4,9 @@ import java.util.Scanner;
 public class Bai6Sort {
     public static ArrayList<Product> findProductByPrice(ArrayList<Product> listProduct, int newPrice){
         ArrayList<Product> newProduct = new ArrayList<>();
-        for (Product pr: listProduct){
-            if (newPrice >= pr.price){
-                newProduct.add(pr);
+        for (Product product: listProduct){
+            if (newPrice >= product.getPrice()){
+                newProduct.add(product);
             }
         }
         return newProduct;
