@@ -3,12 +3,14 @@ import java.util.Scanner;
 
 public class Bai11Sort {
     public static ArrayList<Product> sortByPrice(ArrayList<Product> listProduct){
-        for (int i = 1; i<listProduct.size(); i++){
+        for (int i = 1; i < listProduct.size() ; i++){
             Product product = listProduct.get(i);
             int j = i-1;
-            if(product.getPrice() > listProduct.get(j).getPrice()){
-                listProduct.set(j+1,listProduct.get(j));
+            while (j >= 0 && product.getPrice() < listProduct.get(j).getPrice()){
+                listProduct.set(j+1, listProduct.get(j));
+                j--;
             }
+            listProduct.set(j+1, product);
         }
         return listProduct;
     }
