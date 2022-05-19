@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Bai5Sort {
     public static ArrayList<Product> findProductByCategory(ArrayList<Product> listProduct, int categoryId){
-        ArrayList<Product> newProduct = new ArrayList<Product>();
+        ArrayList<Product> newProduct = new ArrayList<>();
         for (Product product: listProduct){
             if (categoryId == product.getCategoryId()){
                 newProduct.add(product);
